@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Natamu Travel App</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="user-info">
+                <img src="https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff" alt="User" class="avatar">
+                <div class="greeting">
+                    <p>Selamat Pagi,</p>
+                    <h2>Penjelajah! 🌍</h2>
+                </div>
+            </div>
+            <button class="notification-btn">
+                <i class="ri-notification-3-line"></i>
+                <span class="badge"></span>
+            </button>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-section">
+            <div class="search-box">
+                <i class="ri-search-line"></i>
+                <input type="text" placeholder="Temukan destinasi impianmu...">
+                <button class="filter-btn"><i class="ri-equalizer-line"></i></button>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories-section section">
+            <div class="category-list">
+                <div class="category-item active">
+                    <div class="icon-wrapper"><i class="ri-earth-line"></i></div>
+                    <span>Semua</span>
+                </div>
+                <div class="category-item">
+                    <div class="icon-wrapper"><i class="ri-mountain-line"></i></div>
+                    <span>Gunung</span>
+                </div>
+                <div class="category-item">
+                    <div class="icon-wrapper"><i class="ri-sun-line"></i></div>
+                    <span>Pantai</span>
+                </div>
+                <div class="category-item">
+                    <div class="icon-wrapper"><i class="ri-building-2-line"></i></div>
+                    <span>Kota</span>
+                </div>
+                <div class="category-item">
+                    <div class="icon-wrapper"><i class="ri-tent-line"></i></div>
+                    <span>Camping</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Destinations -->
+        <div class="popular-section section">
+            <div class="section-header">
+                <h3>Tempat Populer</h3>
+                <a href="#" class="see-all">Lihat Semua</a>
+            </div>
+            <div class="destinations-scroll" id="destinations-container">
+                <!-- Data dimuat dari API -->
+            </div>
+        </div>
+
+        <!-- Travel Packages -->
+        <div class="packages-section section">
+            <div class="section-header">
+                <h3>Paket Perjalanan</h3>
+            </div>
+            <div class="packages-list" id="packages-container">
+                <!-- Data dimuat dari API -->
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Spacer -->
+        <div class="bottom-nav-spacer"></div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <i class="ri-home-5-fill"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="ri-compass-3-line"></i>
+                <span>Jelajah</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="ri-ticket-2-line"></i>
+                <span>Tiket</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="ri-user-3-line"></i>
+                <span>Profil</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+
+</html>

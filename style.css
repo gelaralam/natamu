@@ -145,15 +145,6 @@ a {
     letter-spacing: -0.5px;
 }
 
-.avatar-sm {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
-    box-shadow: var(--shadow-sm);
-}
-
 /* About Section */
 .about-section {
     padding: 0 24px 20px;

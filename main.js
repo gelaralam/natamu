@@ -57,15 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fallback Data
     const fallbackDestinations = [
-        { id: 1, title: "Nusa Penida", location: "Bali, Indonesia", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=400", rating: 4.9, price: "Rp 1.2M", isFavorite: true },
-        { id: 2, title: "Gunung Bromo", location: "Jawa Timur", image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&q=80&w=400", rating: 4.8, price: "Rp 850k", isFavorite: false },
-        { id: 3, title: "Raja Ampat", location: "Papua Barat", image: "https://images.unsplash.com/photo-1516483638261-f4085ee6bd0f?auto=format&fit=crop&q=80&w=400", rating: 5.0, price: "Rp 4.5M", isFavorite: false }
+        { id: 1, title: 'Imah Gede', location: 'Pusat Kasepuhan', price: 'Gratis', rating: 4.9, image: 'assets/images/imah-gede.jpg', isFavorite: true },
+        { id: 2, title: 'Leuit Si Jimat', location: 'Area Pertanian', price: 'Gratis', rating: 4.8, image: 'assets/images/leuit.jpg', isFavorite: false },
+        { id: 3, title: 'Hutan Larangan', location: 'Zona Konservasi', price: 'Rp 50rb', rating: 4.7, image: 'assets/images/hutan.jpg', isFavorite: false }
     ];
 
     const fallbackPackages = [
-        { id: 1, title: "Jelajah Raja Ampat", duration: "4 Hari 3 Malam", image: "https://images.unsplash.com/photo-1516483638261-f4085ee6bd0f?auto=format&fit=crop&q=80&w=200", price: "Rp 5.5M" },
-        { id: 2, title: "Budaya Yogyakarta", duration: "3 Hari 2 Malam", image: "https://images.unsplash.com/photo-1596401081755-d3fa7bfbbf53?auto=format&fit=crop&q=80&w=200", price: "Rp 2.1M" },
-        { id: 3, title: "Eksplorasi Labuan Bajo", duration: "5 Hari 4 Malam", image: "https://images.unsplash.com/photo-1512100256359-e70538d4dbd9?auto=format&fit=crop&q=80&w=200", price: "Rp 6.2M" }
+        { id: 1, title: 'Wisata Budaya 2D1N', duration: '2 Hari 1 Malam', price: 'Rp 350.000', image: 'assets/images/package-1.jpg' },
+        { id: 2, title: 'Tracking Hutan Larangan', duration: '1 Hari Full', price: 'Rp 150.000', image: 'assets/images/package-2.jpg' }
     ];
 
     const renderDestinations = (data) => {

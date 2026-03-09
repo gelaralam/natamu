@@ -104,8 +104,8 @@ a {
 }
 
 .app-logo {
-    height: 48px;
-    /* Adjusted based on logo aspect ratio */
+    height: 32px;
+    /* Reduced for a cleaner look */
     width: auto;
     object-fit: contain;
 }

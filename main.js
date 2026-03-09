@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const isFavClass = dest.isFavorite ? 'active' : '';
             const isFavIcon = dest.isFavorite ? 'ri-heart-fill' : 'ri-heart-line';
             const card = document.createElement('div');
-            card.className = 'destination-card';
-            card.style.animation = `fadeIn 0.6s ease-out ${index * 0.1}s both`;
+            card.className = 'destination-card observe-fade';
+
             card.innerHTML = `
                 <div class="card-image" style="background-image: url('${dest.image}');">
                     <div class="rating"><i class="ri-star-fill"></i> ${dest.rating}</div>
@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(card);
         });
         attachFavoriteListeners();
+        observeElements();
     };
 
     const renderPackages = (data) => {
@@ -105,8 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
         data.forEach((pkg, index) => {
             const item = document.createElement('div');
-            item.className = 'package-item';
-            item.style.animation = `fadeIn 0.6s ease-out ${0.3 + index * 0.1}s both`;
+            item.className = 'package-item observe-fade';
+
+            const waMessage = encodeURIComponent(`Halo Natamu! Saya tertarik memesan paket perjalanan: ${pkg.title}`);
+            const waLink = `https://wa.me/6281234567890?text=${waMessage}`; // Ganti dengan nomor asli nanti
+
             item.innerHTML = `
                 <img src="${pkg.image}" alt="${pkg.title}">
                 <div class="package-details">
@@ -114,18 +118,88 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="duration"><i class="ri-time-line"></i> ${pkg.duration}</p>
                     <div class="package-bottom">
                         <span class="price">${pkg.price}</span>
-                        <button class="book-btn">Pesan</button>
+                        <a href="${waLink}" target="_blank" class="book-btn">Pesan</a>
                     </div>
                 </div>
             `;
             container.appendChild(item);
         });
+        observeElements();
     };
+
+    // Intersection Observer for Animations
+    function observeElements() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.observe-fade').forEach(el => observer.observe(el));
+    }
+
+    // Initial Observation for static elements
+    observeElements();
+
+    let allDestinations = [];
+
+    // Helper to Filter Destinations
+    const filterDestinations = (category) => {
+        const lowerCategory = category.toLowerCase();
+        const source = allDestinations.length > 0 ? allDestinations : fallbackDestinations;
+
+        if (lowerCategory === 'semua') {
+            renderDestinations(source);
+        } else {
+            const filtered = source.filter(dest =>
+                dest.title.toLowerCase().includes(lowerCategory) ||
+                dest.location.toLowerCase().includes(lowerCategory)
+            );
+            renderDestinations(filtered.length > 0 ? filtered : source);
+        }
+    };
+
+    // Category Click Handlers
+    document.querySelectorAll('.category-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const currentActive = document.querySelector('.category-item.active');
+            if (currentActive) currentActive.classList.remove('active');
+            item.classList.add('active');
+            const categoryName = item.querySelector('span').innerText;
+            filterDestinations(categoryName);
+        });
+    });
+
+    // Search Functionality
+    const searchInput = document.querySelector('.search-box input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const source = allDestinations.length > 0 ? allDestinations : fallbackDestinations;
+
+            const filtered = source.filter(dest =>
+                dest.title.toLowerCase().includes(query) ||
+                dest.location.toLowerCase().includes(query)
+            );
+
+            renderDestinations(filtered);
+
+            // Reset categories if searching
+            if (query.length > 0) {
+                document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+            }
+        });
+    }
 
     // Fetch Destinations
     fetch(`${API_BASE}/destinations`)
         .then(res => res.json())
-        .then(data => renderDestinations(data))
+        .then(data => {
+            allDestinations = data;
+            renderDestinations(data);
+        })
         .catch(err => {
             console.warn('Using fallback destinations', err);
             renderDestinations(fallbackDestinations);

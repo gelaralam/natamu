@@ -60,16 +60,15 @@ a {
 }
 
 /* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
+.observe-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.observe-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* App Container */
@@ -82,7 +81,6 @@ a {
     overflow-y: auto;
     overflow-x: hidden;
     box-shadow: var(--shadow-lg);
-    animation: fadeIn 0.8s ease-out;
 }
 
 .app-container::-webkit-scrollbar {
@@ -124,27 +122,6 @@ a {
     transition: var(--transition);
 }
 
-/* Welcome Section */
-.welcome-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 24px 20px;
-}
-
-.greeting p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    font-weight: 500;
-    margin-bottom: 2px;
-}
-
-.greeting h2 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
 /* About Section */
 .about-section {
     padding: 0 24px 20px;
@@ -168,36 +145,16 @@ a {
 }
 
 .about-card p {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    /* Slightly larger for readability */
+    line-height: 1.7;
     opacity: 0.9;
-    margin-bottom: 16px;
-}
-
-.about-features {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-}
-
-.feature {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 8px 12px;
-    border-radius: 20px;
-    backdrop-filter: blur(4px);
-}
-
-.feature i {
-    color: var(--accent);
+    margin-bottom: 20px;
 }
 
 .about-desc {
     font-style: italic;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     padding-top: 16px;
     margin-bottom: 0 !important;
 }
@@ -558,8 +515,10 @@ a {
 }
 
 .book-btn {
+    display: inline-block;
     background-color: var(--primary);
-    color: white;
+    color: white !important;
+    text-decoration: none;
     font-weight: 600;
     font-size: 0.85rem;
     padding: 8px 18px;
@@ -571,6 +530,7 @@ a {
 .book-btn:hover {
     background-color: var(--primary-light);
     transform: translateY(-2px);
+    color: white !important;
 }
 
 /* Bottom Navigation */

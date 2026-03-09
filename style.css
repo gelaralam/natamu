@@ -154,6 +154,63 @@ a {
     box-shadow: var(--shadow-sm);
 }
 
+/* About Section */
+.about-section {
+    padding: 0 24px 20px;
+}
+
+.about-card {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.about-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 16px;
+}
+
+.about-features {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.feature i {
+    color: var(--accent);
+}
+
+.about-desc {
+    font-style: italic;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
+    margin-bottom: 0 !important;
+}
+
 .notification-btn:active {
     transform: scale(0.95);
 }

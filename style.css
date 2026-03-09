@@ -95,22 +95,41 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 32px 24px 20px;
+    padding: 32px 24px 10px;
 }
 
-.user-info {
+.brand {
     display: flex;
     align-items: center;
-    gap: 16px;
 }
 
-.avatar {
-    width: 52px;
-    height: 52px;
+.app-logo {
+    height: 48px;
+    /* Adjusted based on logo aspect ratio */
+    width: auto;
+    object-fit: contain;
+}
+
+.notification-btn {
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-    box-shadow: var(--shadow-md);
+    background-color: var(--bg-page);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    color: var(--text-main);
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 24px 20px;
 }
 
 .greeting p {
@@ -126,18 +145,13 @@ a {
     letter-spacing: -0.5px;
 }
 
-.notification-btn {
-    width: 44px;
-    height: 44px;
+.avatar-sm {
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background-color: var(--bg-page);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.25rem;
-    color: var(--text-main);
-    position: relative;
-    transition: var(--transition);
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: var(--shadow-sm);
 }
 
 .notification-btn:active {

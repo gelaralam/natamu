@@ -88,24 +88,78 @@ a {
     background: transparent;
 }
 
-/* Header */
-.app-header {
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&q=80&w=800');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 32px 24px 10px;
+    padding: 24px;
 }
 
-.brand {
+.hero-header .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.menu-btn {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: none;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    font-size: 1.5rem;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.app-logo {
-    height: 32px;
-    /* Reduced for a cleaner look */
-    width: auto;
-    object-fit: contain;
+.hero-content {
+    margin-top: auto;
+    padding: 40px 24px;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 0;
+    letter-spacing: -2px;
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.1;
+    opacity: 0.9;
+}
+
+/* About Section Mockup */
+.about-section-mockup {
+    padding: 32px 24px;
+    background: white;
+}
+
+.about-section-mockup p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 16px;
+    font-weight: 500;
 }
 
 .notification-btn {
@@ -120,43 +174,6 @@ a {
     color: var(--text-main);
     position: relative;
     transition: var(--transition);
-}
-
-/* About Section */
-.about-section {
-    padding: 0 24px 20px;
-}
-
-.about-card {
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    color: white;
-    box-shadow: var(--shadow-md);
-}
-
-.about-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--accent-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-card p {
-    font-size: 0.95rem;
-    /* Slightly larger for readability */
-    line-height: 1.7;
-    opacity: 0.9;
-    margin-bottom: 20px;
-}
-
-.about-desc {
-    font-style: italic;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 16px;
-    margin-bottom: 0 !important;
 }
 
 .notification-btn:active {

@@ -63,26 +63,31 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!container) return;
             container.innerHTML = ''; // Clear loading state
 
-            data.forEach(dest => {
+            data.forEach((dest, index) => {
                 const isFavClass = dest.isFavorite ? 'active' : '';
                 const isFavIcon = dest.isFavorite ? 'ri-heart-fill' : 'ri-heart-line';
 
-                container.innerHTML += `
-                    <div class="destination-card">
-                        <div class="card-image" style="background-image: url('${dest.image}');">
-                            <div class="rating"><i class="ri-star-fill"></i> ${dest.rating}</div>
-                            <button class="favorite-btn ${isFavClass}"><i class="${isFavIcon}"></i></button>
-                        </div>
-                        <div class="card-content">
-                            <h4>${dest.title}</h4>
-                            <div class="location"><i class="ri-map-pin-line"></i> ${dest.location}</div>
-                            <div class="price">
+                const card = document.createElement('div');
+                card.className = 'destination-card';
+                card.style.animation = `fadeIn 0.6s ease-out ${index * 0.1}s both`;
+
+                card.innerHTML = `
+                    <div class="card-image" style="background-image: url('${dest.image}');">
+                        <div class="rating"><i class="ri-star-fill"></i> ${dest.rating}</div>
+                        <button class="favorite-btn ${isFavClass}"><i class="${isFavIcon}"></i></button>
+                    </div>
+                    <div class="card-content">
+                        <h4>${dest.title}</h4>
+                        <div class="location"><i class="ri-map-pin-line"></i> ${dest.location}</div>
+                        <div class="price">
+                            <div class="price-box">
                                 <span>Mulai dari</span>
                                 <strong>${dest.price}</strong>
                             </div>
                         </div>
                     </div>
                 `;
+                container.appendChild(card);
             });
 
             attachFavoriteListeners();
@@ -101,20 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!container) return;
             container.innerHTML = ''; // Clear loading state
 
-            data.forEach(pkg => {
-                container.innerHTML += `
-                    <div class="package-item">
-                        <img src="${pkg.image}" alt="${pkg.title}">
-                        <div class="package-details">
-                            <h4>${pkg.title}</h4>
-                            <p class="duration"><i class="ri-time-line"></i> ${pkg.duration}</p>
-                            <div class="package-bottom">
-                                <span class="price">${pkg.price}</span>
-                                <button class="book-btn">Pesan</button>
-                            </div>
+            data.forEach((pkg, index) => {
+                const item = document.createElement('div');
+                item.className = 'package-item';
+                item.style.animation = `fadeIn 0.6s ease-out ${0.3 + index * 0.1}s both`;
+
+                item.innerHTML = `
+                    <img src="${pkg.image}" alt="${pkg.title}">
+                    <div class="package-details">
+                        <h4>${pkg.title}</h4>
+                        <p class="duration"><i class="ri-time-line"></i> ${pkg.duration}</p>
+                        <div class="package-bottom">
+                            <span class="price">${pkg.price}</span>
+                            <button class="book-btn">Pesan</button>
                         </div>
                     </div>
                 `;
+                container.appendChild(item);
             });
         })
         .catch(err => {

@@ -15,11 +15,35 @@
 
 <body>
     <div class="app-container">
+        <!-- Side Menu Overlay -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+        <!-- Side Menu -->
+        <div class="side-menu" id="sideMenu">
+            <div class="menu-header">
+                <div class="logo">Natamu</div>
+                <button class="close-menu" id="closeMenu"><i class="ri-close-line"></i></button>
+            </div>
+            <nav class="menu-nav">
+                <a href="#packages" class="menu-link">
+                    <i class="ri-mickey-line"></i>
+                    <span>Paket Wisata Budaya</span>
+                </a>
+                <a href="#popular" class="menu-link">
+                    <i class="ri-fire-line"></i>
+                    <span>Tempat Populer</span>
+                </a>
+            </nav>
+            <div class="menu-footer">
+                <p>&copy; 2026 natamu.tours</p>
+            </div>
+        </div>
+
         <!-- New Landing Page Hero -->
         <div class="hero-section">
             <header class="hero-header">
                 <div class="logo">Natamu</div>
-                <button class="menu-btn"><i class="ri-menu-line"></i></button>
+                <button class="menu-btn" id="openMenu"><i class="ri-menu-line"></i></button>
             </header>
 
             <div class="hero-content">
@@ -99,7 +123,7 @@
         </div>
 
         <!-- Popular Destinations -->
-        <div class="popular-section section">
+        <div class="popular-section section" id="popular">
             <div class="section-header">
                 <h3>Tempat Populer</h3>
                 <a href="#" class="see-all">Lihat Semua</a>
@@ -110,7 +134,7 @@
         </div>
 
         <!-- Travel Packages -->
-        <div class="packages-section section">
+        <div class="packages-section section" id="packages">
             <div class="section-header">
                 <h3>Paket Perjalanan</h3>
             </div>

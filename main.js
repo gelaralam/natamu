@@ -9,6 +9,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Side Menu Logic
+    const openMenuBtn = document.getElementById('openMenu');
+    const closeMenuBtn = document.getElementById('closeMenu');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    const toggleMenu = (isOpen) => {
+        if (isOpen) {
+            sideMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        } else {
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    };
+
+    if (openMenuBtn) openMenuBtn.addEventListener('click', () => toggleMenu(true));
+    if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => toggleMenu(false));
+    if (menuOverlay) menuOverlay.addEventListener('click', () => toggleMenu(false));
+
+    // Smooth Scrolling for Menu Links
+    menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                toggleMenu(false); // Close menu first
+
+                // Slight delay for menu animation to finish before scrolling
+                setTimeout(() => {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
+            }
+        });
+    });
+
     // Favorite button logic function
     const attachFavoriteListeners = () => {
         const favoriteBtns = document.querySelectorAll('.favorite-btn');

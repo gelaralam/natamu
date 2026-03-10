@@ -158,9 +158,70 @@ a {
 .about-section-mockup p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #333;
-    margin-bottom: 16px;
+    color: #444;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.tradition-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--primary);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 32px 0;
+    background: var(--bg-page);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    line-height: 1.5;
     font-weight: 500;
+}
+
+.why-choose-section {
+    background: white;
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    margin: 32px 0;
+}
+
+.why-choose-section h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.benefit-list {
+    list-style: none;
+    margin-top: 16px;
+}
+
+.benefit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+.benefit-list i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.cta-text {
+    text-align: center;
+    font-weight: 600 !important;
+    margin-top: 32px;
+}
+
+.cta-text a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .notification-btn {
